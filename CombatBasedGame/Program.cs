@@ -1,9 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+// See https://aka.ms/new-console-template for more information
 int playerHp = 40;
 int enermyHp = 20;
 
-int playerAttack = 5;
-int enermyAttack = 5;
+int playerAttack;
+int enermyAttack;
 
 int healAmount = 5;
 
@@ -20,6 +21,7 @@ while (playerHp > 0 && enermyHp > 0)
 
     if (choice == "a")
     {
+        playerAttack = random.Next(1,10);
         enermyHp -= playerAttack;
         Console.WriteLine("Player attack deals " + playerAttack + " damage!");
     }
@@ -36,10 +38,11 @@ while (playerHp > 0 && enermyHp > 0)
         Console.WriteLine("Enermy Turn");
         Console.WriteLine("Player Hp - " + playerHp + "\nEnermy Hp - " + enermyHp);
 
-        int enermyChoice = random.Next(0, 2);
+        int enermyChoice = random.Next(0, 1);
 
         if (enermyChoice == 0)
         {
+            enermyAttack = random.Next(1,4);
             playerHp -= enermyAttack;
             Console.WriteLine("Enermy attack deals " + enermyAttack + " damage!");
         }
@@ -51,10 +54,10 @@ while (playerHp > 0 && enermyHp > 0)
         }
 
     }
-    if (playerHp is > 0)
+    if (enermyHp is <= 0)
         Console.WriteLine("You have Won!");
 
-    else
+    if (playerHp is <= 0)
     {
         Console.WriteLine("You lose!");
     }
